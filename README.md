@@ -1,8 +1,6 @@
 # Vagrant Test
 
-## ■リポジトリ
-
-- [https://github.com/gakimaru-on-connext/testvagrant](https://github.com/gakimaru-on-connext/testvagrant)
+[https://github.com/gakimaru-on-connext/testvagrant](https://github.com/gakimaru-on-connext/testvagrant)
 
 ---
 ## ■概要
