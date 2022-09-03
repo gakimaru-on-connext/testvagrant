@@ -170,20 +170,6 @@ $ curl http://192.168.56.10
 ...(HTML出力)...
 ```
 
-## ディレクトリ構成
-
-- vagrant/ ... vagrant 用
-  - Vagrantfile ... vagrant VM 設定
-- setup/ ... セットアップシェルスクリプト用
-  - config/ ... 各セットアップで使用する設定ファイル
-  - setup-os.sh ... OS のセットアップスクリプト
-  - setup-mariadb.sh ... MariaDB のセットアップスクリプト
-  - setup-postgresql.sh ... PostgreSQL のセットアップスクリプト
-  - setup-mongodb.sh ... MongoDB のセットアップスクリプト
-  - setup-redis.sh ... Redis のセットアップスクリプト
-  - setup-nginx.sh ... Nginx のセットアップスクリプト
-  - setup-nodejs.sh ... Node.js のセットアップスクリプト
-
 ## 解説
 
 ### Vagrant の　OS イメージの指定
@@ -213,6 +199,20 @@ $ curl http://192.168.56.10
 
   - 「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される
   - 下記のように「inline:」を使用すると、Vagrantfile に直接シェルスクリプトを埋め込むことも可能
+
+## ディレクトリ構成
+
+- vagrant/ ... vagrant 用
+  - Vagrantfile ... vagrant VM 設定
+- setup/ ... セットアップシェルスクリプト用
+  - config/ ... 各セットアップで使用する設定ファイル
+  - setup-os.sh ... OS のセットアップスクリプト
+  - setup-mariadb.sh ... MariaDB のセットアップスクリプト
+  - setup-postgresql.sh ... PostgreSQL のセットアップスクリプト
+  - setup-mongodb.sh ... MongoDB のセットアップスクリプト
+  - setup-redis.sh ... Redis のセットアップスクリプト
+  - setup-nginx.sh ... Nginx のセットアップスクリプト
+  - setup-nodejs.sh ... Node.js のセットアップスクリプト
 
 ----
 以上
