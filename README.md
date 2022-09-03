@@ -38,6 +38,8 @@ $ cd vagrant
 $ vagrant provision
 ```
 
+- これにより、各セットアップシェルスクリプトが順次呼び出される
+
 ### VM 再起動
 
 ```shell
@@ -185,10 +187,13 @@ $ curl http://192.168.56.10
 ## 解説
 
 - Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定
+
   ```ruby
   config.vm.box = "generic/rocky9"
   ```
+
 - Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定
+
   ```ruby
   setup_dir = "../setup"
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-os.sh", reboot: true
@@ -199,6 +204,16 @@ $ curl http://192.168.56.10
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nginx.sh"
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nodejs.sh"
   ```
+
+  - 「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される
+  - 下記のように「inline:」を使用すると、Vagrantfile に直接シェルスクリプトを埋め込むことも可能
+
+    ```ruby
+    config.vm.provision :shell, inline: <<-SHELL
+    echo Foo!
+    echo Bar!
+    SHELL
+    ```
 
 ----
 以上

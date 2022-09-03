@@ -403,6 +403,9 @@ code {
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant provision</span>
 </div></code></pre>
+<ul>
+<li>これにより、各セットアップシェルスクリプトが順次呼び出される</li>
+</ul>
 <h3 id="vm-%E5%86%8D%E8%B5%B7%E5%8B%95">VM 再起動</h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant reload</span>
@@ -528,10 +531,14 @@ postgres=#
 </ul>
 <h2 id="%E8%A7%A3%E8%AA%AC">解説</h2>
 <ul>
-<li>Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定<pre class="hljs"><code><div>config.vm.box = <span class="hljs-string">"generic/rocky9"</span>
+<li>
+<p>Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定</p>
+<pre class="hljs"><code><div>config.vm.box = <span class="hljs-string">"generic/rocky9"</span>
 </div></code></pre>
 </li>
-<li>Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定<pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
+<li>
+<p>Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定</p>
+<pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mariadb.sh"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-postgresql.sh"</span>
@@ -540,6 +547,19 @@ config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-s
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nginx.sh"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nodejs.sh"</span>
 </div></code></pre>
+<ul>
+<li>
+<p>「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される</p>
+</li>
+<li>
+<p>下記のように「inline:」を使用すると、Vagrantfile に直接シェルスクリプトを埋め込むことも可能</p>
+<pre class="hljs"><code><div>config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">inline:</span> <span class="hljs-string">&lt;&lt;-SHELL
+echo Foo!
+echo Bar!
+SHELL</span>
+</div></code></pre>
+</li>
+</ul>
 </li>
 </ul>
 <hr>
