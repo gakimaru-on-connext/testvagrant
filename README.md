@@ -11,17 +11,18 @@
   - [https://github.com/gakimaru-on-connext/testansible](https://github.com/gakimaru-on-connext/testansible)
 
 ---
-## ■必要要件
+## ■動作要件
 
 - macOS ※x86系のみ
-- 下記のインストールが行われていること
-  - Oracle Virtualbox
-      - [https://www.oracle.com/jp/virtualization/technologies/vm/downloads/virtualbox-downloads.html](https://www.oracle.com/jp/virtualization/technologies/vm/downloads/virtualbox-downloads.html)
-  - Vagrant
 
-    ```shell
-    $ brew install vagrant
-    ```
+- Oracle Virtualbox
+    - [https://www.oracle.com/jp/virtualization/technologies/vm/downloads/virtualbox-downloads.html](https://www.oracle.com/jp/virtualization/technologies/vm/downloads/virtualbox-downloads.html)
+
+- Vagrant
+
+  ```shell
+  $ brew install vagrant
+  ```
 
 ---
 ## ■VM 操作方法
