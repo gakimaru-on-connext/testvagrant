@@ -31,7 +31,7 @@ EOD
 AdminUser=admin
 AdminPassword=hogehoge
 sudo -i -u postgres psql <<EOD
-CREATE ROLE $AdminUser WITH LOGIN SUPERUSER CREATEDB CREATEROLE PASSWORD '$AdmninPassword';
+CREATE ROLE $AdminUser WITH LOGIN SUPERUSER CREATEDB CREATEROLE PASSWORD '$AdminPassword';
 \du
 EOD
 

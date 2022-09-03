@@ -450,6 +450,7 @@ code {
 <li>接続</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> mysql -u admin -h 192.168.56.10 --password=hogehoge mysql</span>
+mysql [admin@192.168.56.1 mysql] &gt;
 </div></code></pre>
 <h3 id="postgresql">PostgreSQL</h3>
 <ul>
@@ -462,10 +463,12 @@ code {
 <li>接続</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> psql -U admin -h 192.168.56.10 -d postgres</span>
-（パスワード入力）hogehoge
+Password for user admin: hogehoge（パスワード入力）
+postgres=#
 </div></code></pre>
 <p>または</p>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> psql <span class="hljs-string">'postgres://admin:hogehoge@192.168.56.10:5432/postgres?sslmode=disable'</span></span>
+postgres=#
 </div></code></pre>
 <h3 id="mongodb">MongoDB</h3>
 <ul>
@@ -477,6 +480,7 @@ code {
 <li>接続</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> mongosh 192.168.56.10</span>
+<span class="hljs-meta">test&gt;</span>
 </div></code></pre>
 <h3 id="redis">Redis</h3>
 <ul>
@@ -488,6 +492,7 @@ code {
 <li>接続</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> redis-cli -h 192.168.56.10</span>
+192.168.56.10:6379&gt;
 </div></code></pre>
 <h3 id="nginx">Nginx</h3>
 <ul>
@@ -499,6 +504,7 @@ code {
 <li>接続</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> curl http://192.168.56.10</span>
+...(HTML出力)...
 </div></code></pre>
 <h2 id="%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90">ディレクトリ構成</h2>
 <ul>
@@ -518,6 +524,19 @@ code {
 <li>setup-nginx.sh ... Nginxのセットアップ</li>
 <li>setup-nodejs.sh ... Node.jsのセットアップ</li>
 </ul>
+</li>
+</ul>
+<h2 id="%E8%A7%A3%E8%AA%AC">解説</h2>
+<ul>
+<li>Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定<pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mariadb.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-postgresql.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mongodb.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-redis.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nginx.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nodejs.sh"</span>
+</div></code></pre>
 </li>
 </ul>
 <hr>

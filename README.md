@@ -98,6 +98,7 @@ $ brew install mysql-client
 
 ```shell
 $ mysql -u admin -h 192.168.56.10 --password=hogehoge mysql
+mysql [admin@192.168.56.1 mysql] >
 ```
 
 ### PostgreSQL
@@ -113,11 +114,13 @@ $ echo 'export PATH=$PATH:/usr/local/opt/libpq/bin' >> ~/.zshrc
 
 ```shell
 $ psql -U admin -h 192.168.56.10 -d postgres
-（パスワード入力）hogehoge
+Password for user admin: hogehoge（パスワード入力）
+postgres=#
 ```
 または
 ```shell
 $ psql 'postgres://admin:hogehoge@192.168.56.10:5432/postgres?sslmode=disable'
+postgres=#
 ```
 
 ### MongoDB
@@ -132,6 +135,7 @@ $ brew install mongsh
 
 ```shell
 $ mongosh 192.168.56.10
+test>
 ```
 
 ### Redis
@@ -146,6 +150,7 @@ $ brew install redis
 
 ```shell
 $ redis-cli -h 192.168.56.10
+192.168.56.10:6379>
 ```
 
 ### Nginx
@@ -160,6 +165,7 @@ $ brew install curl
 
 ```shell
 $ curl http://192.168.56.10
+...(HTML出力)...
 ```
 
 ## ディレクトリ構成
@@ -175,6 +181,20 @@ $ curl http://192.168.56.10
   - setup-redis.sh ... Redisのセットアップ
   - setup-nginx.sh ... Nginxのセットアップ
   - setup-nodejs.sh ... Node.jsのセットアップ
+
+## 解説
+
+- Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定
+  ```ruby
+  setup_dir = "../setup"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-os.sh", reboot: true
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mariadb.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-postgresql.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mongodb.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-redis.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nginx.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nodejs.sh"
+  ```
 
 ----
 以上
