@@ -242,6 +242,14 @@ $ curl http://192.168.56.10
   config.vm.network "forwarded_port", guest: 27017, host: 47017, host_ip: "127.0.0.1", auto_correct: true # mongdb
   ```
 
+- これにより、例えば下記の２つのアクセス方法は同じ結果になる
+   ```shell
+   $ curl http://192.168.56.10
+   ```
+   ```shell
+   $ curl http://127.0.0.1:40080
+   ```
+
 ### ▼Vagrant のディレクトリ共有設定
 
 - ホストOS側（macOS）とゲストOS側のディレクトリを共有する設定
