@@ -176,13 +176,13 @@ $ curl http://192.168.56.10
   - Vagrantfile ... vagrant VM 設定
 - setup/ ... セットアップシェルスクリプト用
   - config/ ... 各セットアップで使用する設定ファイル
-  - setup-os.sh ... OSのセットアップスクリプト
-  - setup-mariadb.sh ... MariaDBのセットアップスクリプト
-  - setup-postgresql.sh ... PostgreSQLのセットアップスクリプト
-  - setup-mongodb.sh ... MongoDBのセットアップスクリプト
-  - setup-redis.sh ... Redisのセットアップスクリプト
-  - setup-nginx.sh ... Nginxのセットアップスクリプト
-  - setup-nodejs.sh ... Node.jsのセットアップスクリプト
+  - setup-os.sh ... OS のセットアップスクリプト
+  - setup-mariadb.sh ... MariaDB のセットアップスクリプト
+  - setup-postgresql.sh ... PostgreSQL のセットアップスクリプト
+  - setup-mongodb.sh ... MongoDB のセットアップスクリプト
+  - setup-redis.sh ... Redis のセットアップスクリプト
+  - setup-nginx.sh ... Nginx のセットアップスクリプト
+  - setup-nodejs.sh ... Node.js のセットアップスクリプト
 
 ## 解説
 
@@ -194,26 +194,21 @@ $ curl http://192.168.56.10
 
 - Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定
 
-  ```ruby
-  setup_dir = "../setup"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-os.sh", reboot: true
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mariadb.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-postgresql.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mongodb.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-redis.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nginx.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nodejs.sh"
-  ```
+  - vagrant/Vagrantfile
+
+    ```ruby
+    setup_dir = "../setup"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-os.sh", reboot: true
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mariadb.sh"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-postgresql.sh"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mongodb.sh"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-redis.sh"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nginx.sh"
+    config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nodejs.sh"
+    ```
 
   - 「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される
   - 下記のように「inline:」を使用すると、Vagrantfile に直接シェルスクリプトを埋め込むことも可能
-
-    ```ruby
-    config.vm.provision :shell, inline: <<-SHELL
-    echo Foo!
-    echo Bar!
-    SHELL
-    ```
 
 ----
 以上

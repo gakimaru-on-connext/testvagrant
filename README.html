@@ -519,13 +519,13 @@ postgres=#
 <li>setup/ ... セットアップシェルスクリプト用
 <ul>
 <li>config/ ... 各セットアップで使用する設定ファイル</li>
-<li>setup-os.sh ... OSのセットアップスクリプト</li>
-<li>setup-mariadb.sh ... MariaDBのセットアップスクリプト</li>
-<li>setup-postgresql.sh ... PostgreSQLのセットアップスクリプト</li>
-<li>setup-mongodb.sh ... MongoDBのセットアップスクリプト</li>
-<li>setup-redis.sh ... Redisのセットアップスクリプト</li>
-<li>setup-nginx.sh ... Nginxのセットアップスクリプト</li>
-<li>setup-nodejs.sh ... Node.jsのセットアップスクリプト</li>
+<li>setup-os.sh ... OS のセットアップスクリプト</li>
+<li>setup-mariadb.sh ... MariaDB のセットアップスクリプト</li>
+<li>setup-postgresql.sh ... PostgreSQL のセットアップスクリプト</li>
+<li>setup-mongodb.sh ... MongoDB のセットアップスクリプト</li>
+<li>setup-redis.sh ... Redis のセットアップスクリプト</li>
+<li>setup-nginx.sh ... Nginx のセットアップスクリプト</li>
+<li>setup-nodejs.sh ... Node.js のセットアップスクリプト</li>
 </ul>
 </li>
 </ul>
@@ -538,6 +538,9 @@ postgres=#
 </li>
 <li>
 <p>Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定</p>
+<ul>
+<li>
+<p>vagrant/Vagrantfile</p>
 <pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mariadb.sh"</span>
@@ -547,17 +550,12 @@ config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-s
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nginx.sh"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nodejs.sh"</span>
 </div></code></pre>
-<ul>
+</li>
 <li>
 <p>「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される</p>
 </li>
 <li>
 <p>下記のように「inline:」を使用すると、Vagrantfile に直接シェルスクリプトを埋め込むことも可能</p>
-<pre class="hljs"><code><div>config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">inline:</span> <span class="hljs-string">&lt;&lt;-SHELL
-echo Foo!
-echo Bar!
-SHELL</span>
-</div></code></pre>
 </li>
 </ul>
 </li>
