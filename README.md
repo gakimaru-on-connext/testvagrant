@@ -202,17 +202,41 @@ $ curl http://192.168.56.10
 
 ## ディレクトリ構成
 
-- vagrant/ ... vagrant 用
-  - Vagrantfile ... vagrant VM 設定
-- setup/ ... セットアップシェルスクリプト用
-  - config/ ... 各セットアップで使用する設定ファイル
-  - setup-os.sh ... OS のセットアップスクリプト
-  - setup-mariadb.sh ... MariaDB のセットアップスクリプト
-  - setup-postgresql.sh ... PostgreSQL のセットアップスクリプト
-  - setup-mongodb.sh ... MongoDB のセットアップスクリプト
-  - setup-redis.sh ... Redis のセットアップスクリプト
-  - setup-nginx.sh ... Nginx のセットアップスクリプト
-  - setup-nodejs.sh ... Node.js のセットアップスクリプト
++ /vagrant ... vagrant 用
+  + .Vagrantfile ... vagrant VM 設定
++ /setup ... セットアップシェルスクリプト用
+  + /config ... 各セットアップで使用する設定ファイル
+  + .setup-os.sh ... OS のセットアップスクリプト
+  + .setup-mariadb.sh ... MariaDB のセットアップスクリプト
+  + .setup-postgresql.sh ... PostgreSQL のセットアップスクリプト
+  + .setup-mongodb.sh ... MongoDB のセットアップスクリプト
+  + .setup-redis.sh ... Redis のセットアップスクリプト
+  + .setup-nginx.sh ... Nginx のセットアップスクリプト
+  + .setup-nodejs.sh ... Node.js のセットアップスクリプト
+
++ /vagrant
+  + .Vagrantfile
++ /setup
+  + /config
+  + .setup-os.sh
+  + .setup-mariadb.sh
+  + .setup-postgresql.sh
+  + .setup-mongodb.sh
+  + .setup-redis.sh
+  + .setup-nginx.sh
+  + .setup-nodejs.sh
+
++ \vagrant
+  + .Vagrantfile
++ \setup
+  + \config
+  + .setup-os.sh
+  + .setup-mariadb.sh
+  + .setup-postgresql.sh
+  + .setup-mongodb.sh
+  + .setup-redis.sh
+  + .setup-nginx.sh
+  + .setup-nodejs.sh
 
 ----
 以上
