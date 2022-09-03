@@ -94,7 +94,9 @@ $ vagrant destroy
 - Node.js（JavaScript開発・実行環境）
 
 ---
-## ■各サーバーへのアクセス方法（macOSからのアクセス）
+## ■各サーバーへのアクセス方法
+
+- macOSからのアクセス方法
 
 ### ▼MariaDB
 
