@@ -6,7 +6,7 @@
 ## ■概要
 
 - Vagrant を用いた VM 上へのOSセットアップのテスト
-- シェルスクリプトによるセットアップを行う
+- シェル（スクリプト）によるセットアップを行う
 - Ansible によるセットアップと比較できるように、同様の内容の Ansible 版も用意
   - [https://github.com/gakimaru-on-connext/testansible](https://github.com/gakimaru-on-connext/testansible)
 
