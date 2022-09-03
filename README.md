@@ -186,11 +186,15 @@ $ curl http://192.168.56.10
 
 ## 解説
 
+### Vagrant の　OS イメージの指定
+
 - Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定
 
   ```ruby
   config.vm.box = "generic/rocky9"
   ```
+
+### Vagrant プロビジョニング設定
 
 - Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定
 
