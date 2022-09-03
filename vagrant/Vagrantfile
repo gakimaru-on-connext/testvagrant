@@ -84,16 +84,9 @@ Vagrant.configure("2") do |config|
     vb.name = "testvagrant"
     vb.gui = false
     vb.memory = "2048"
-    vb.cpus = 4
+    vb.cpus = 2
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    #ボリューム変更方法
-    # $ vagrant ssh
-    # $ sudo pvdisplay  ... LVMの Phigical Volume 確認
-    # $ sudo lvdisplay  ... LVMの Logical Volume 確認
-    # $ sudo vgdisplay  ... LVMの Volume Group 確認
-    # $ sudo lvextend -L100GB /dev/centos_centos7/root  ... LVMの Logical Volume サイズ拡張
-    # $ sudo xfs_growfs /dev/mapper/centos_centos7-root  ... ファイルシステム（xfs）サイズ拡張
   end
 
   # Enable provisioning with a shell script. Additional provisioners such as

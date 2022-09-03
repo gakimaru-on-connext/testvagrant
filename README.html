@@ -510,24 +510,27 @@ postgres=#
 <ul>
 <li>vagrant/ ... vagrant 用
 <ul>
-<li>Vagrantfile</li>
+<li>Vagrantfile ... vagrant VM 設定</li>
 </ul>
 </li>
-<li>setup/  ... セットアップ用
+<li>setup/ ... セットアップシェルスクリプト用
 <ul>
 <li>config/ ... 各セットアップで使用する設定ファイル</li>
-<li>setup-os.sh ... OSのセットアップ</li>
-<li>setup-mariadb.sh ... MariaDBのセットアップ</li>
-<li>setup-postgresql.sh ... PostgreSQLのセットアップ</li>
-<li>setup-mongodb.sh ... MongoDBのセットアップ</li>
-<li>setup-redis.sh ... Redisのセットアップ</li>
-<li>setup-nginx.sh ... Nginxのセットアップ</li>
-<li>setup-nodejs.sh ... Node.jsのセットアップ</li>
+<li>setup-os.sh ... OSのセットアップスクリプト</li>
+<li>setup-mariadb.sh ... MariaDBのセットアップスクリプト</li>
+<li>setup-postgresql.sh ... PostgreSQLのセットアップスクリプト</li>
+<li>setup-mongodb.sh ... MongoDBのセットアップスクリプト</li>
+<li>setup-redis.sh ... Redisのセットアップスクリプト</li>
+<li>setup-nginx.sh ... Nginxのセットアップスクリプト</li>
+<li>setup-nodejs.sh ... Node.jsのセットアップスクリプト</li>
 </ul>
 </li>
 </ul>
 <h2 id="%E8%A7%A3%E8%AA%AC">解説</h2>
 <ul>
+<li>Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定<pre class="hljs"><code><div>config.vm.box = <span class="hljs-string">"generic/rocky9"</span>
+</div></code></pre>
+</li>
 <li>Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定<pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
 config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mariadb.sh"</span>

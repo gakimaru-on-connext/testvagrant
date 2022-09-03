@@ -171,19 +171,23 @@ $ curl http://192.168.56.10
 ## ディレクトリ構成
 
 - vagrant/ ... vagrant 用
-  - Vagrantfile
-- setup/  ... セットアップ用
+  - Vagrantfile ... vagrant VM 設定
+- setup/ ... セットアップシェルスクリプト用
   - config/ ... 各セットアップで使用する設定ファイル
-  - setup-os.sh ... OSのセットアップ
-  - setup-mariadb.sh ... MariaDBのセットアップ
-  - setup-postgresql.sh ... PostgreSQLのセットアップ
-  - setup-mongodb.sh ... MongoDBのセットアップ
-  - setup-redis.sh ... Redisのセットアップ
-  - setup-nginx.sh ... Nginxのセットアップ
-  - setup-nodejs.sh ... Node.jsのセットアップ
+  - setup-os.sh ... OSのセットアップスクリプト
+  - setup-mariadb.sh ... MariaDBのセットアップスクリプト
+  - setup-postgresql.sh ... PostgreSQLのセットアップスクリプト
+  - setup-mongodb.sh ... MongoDBのセットアップスクリプト
+  - setup-redis.sh ... Redisのセットアップスクリプト
+  - setup-nginx.sh ... Nginxのセットアップスクリプト
+  - setup-nodejs.sh ... Node.jsのセットアップスクリプト
 
 ## 解説
 
+- Vagrantfile 内の config.vm.box にて、VM の OS イメージを指定
+  ```ruby
+  config.vm.box = "generic/rocky9"
+  ```
 - Vagrantfile 内下部の config.vm.provision にて、シェルスクリプトによるプロビジョニングを指定
   ```ruby
   setup_dir = "../setup"
