@@ -330,13 +330,13 @@ $ curl http://192.168.56.10
 
   ```ruby
   setup_dir = "../setup"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-os.sh", reboot: true
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mariadb.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-postgresql.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-mongodb.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-redis.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nginx.sh"
-  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup-nodejs.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_os.sh", reboot: true
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_mariadb.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_postgresql.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_mongodb.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_redis.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_nginx.sh"
+  config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_nodejs.sh"
   ```
 
 - 「privileged: true」の指定により、シェルスクリプトはスーパーユーザーで実行される
@@ -356,21 +356,21 @@ $ curl http://192.168.56.10
 testvagrant/
 ├── README.html
 ├── README.md
-├── setup/                   ... セットアップシェルスクリプト用
-│   ├── config/              ... 各セットアップで使用する設定ファイル
+├── setup/                          ... セットアップシェルスクリプト用
+│   ├── config/                     ... 各セットアップで使用する設定ファイル
 │   │   └── etc/
 │   │       └── yum.repos.d/
 │   │           └── mongodb-org-6.0.repo
-│   ├── setup-mariadb.sh     ... MongoDB のセットアップスクリプト
-│   ├── setup-mongodb.sh     ... MongoDB のセットアップスクリプト
-│   ├── setup-nginx.sh       ... Nginx のセットアップスクリプト
-│   ├── setup-nodejs.sh      ... Node.js のセットアップスクリプト
-│   ├── setup-os.sh          ... OS のセットアップスクリプト
-│   ├── setup-postgresql.sh  ... PostgreSQL のセットアップスクリプト
-│   └── setup-redis.sh       ... Redis のセットアップスクリプト
-└── vagrant/                 ... vagrant 用
-    ├── share/               ... vagrant 共有ディレクトリ
-    └── Vagrantfile          ... vagrant VM 設定
+│   ├── setup_os.sh                 ... OS のセットアップスクリプト
+│   ├── setup_package_mariadb.sh    ... MongoDB のセットアップスクリプト
+│   ├── setup_package_mongodb.sh    ... MongoDB のセットアップスクリプト
+│   ├── setup_package_nginx.sh      ... Nginx のセットアップスクリプト
+│   ├── setup_package_nodejs.sh     ... Node.js のセットアップスクリプト
+│   ├── setup_package_postgresql.sh ... PostgreSQL のセットアップスクリプト
+│   └── setup_package_redis.sh      ... Redis のセットアップスクリプト
+└── vagrant/                        ... vagrant 用
+    ├── share/                      ... vagrant 共有ディレクトリ
+    └── Vagrantfile                 ... vagrant VM 設定
 ```
 
 ----

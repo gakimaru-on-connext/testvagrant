@@ -684,13 +684,13 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 <li>
 <p>Vagrantfile</p>
 <pre class="hljs"><code><div>setup_dir = <span class="hljs-string">"../setup"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mariadb.sh"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-postgresql.sh"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-mongodb.sh"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-redis.sh"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nginx.sh"</span>
-config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup-nodejs.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_os.sh"</span>, <span class="hljs-symbol">reboot:</span> <span class="hljs-literal">true</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_mariadb.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_postgresql.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_mongodb.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_redis.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_nginx.sh"</span>
+config.vm.provision <span class="hljs-symbol">:shell</span>, <span class="hljs-symbol">privileged:</span> <span class="hljs-literal">true</span>, <span class="hljs-symbol">path:</span> setup_dir + <span class="hljs-string">"/setup_package_nodejs.sh"</span>
 </div></code></pre>
 </li>
 <li>
@@ -713,21 +713,21 @@ SHELL</span>
 <pre class="hljs"><code><div>testvagrant/
 ├── README.html
 ├── README.md
-├── setup/                   ... セットアップシェルスクリプト用
-│   ├── config/              ... 各セットアップで使用する設定ファイル
+├── setup/                          ... セットアップシェルスクリプト用
+│   ├── config/                     ... 各セットアップで使用する設定ファイル
 │   │   └── etc/
 │   │       └── yum.repos.d/
 │   │           └── mongodb-org-6.0.repo
-│   ├── setup-mariadb.sh     ... MongoDB のセットアップスクリプト
-│   ├── setup-mongodb.sh     ... MongoDB のセットアップスクリプト
-│   ├── setup-nginx.sh       ... Nginx のセットアップスクリプト
-│   ├── setup-nodejs.sh      ... Node.js のセットアップスクリプト
-│   ├── setup-os.sh          ... OS のセットアップスクリプト
-│   ├── setup-postgresql.sh  ... PostgreSQL のセットアップスクリプト
-│   └── setup-redis.sh       ... Redis のセットアップスクリプト
-└── vagrant/                 ... vagrant 用
-    ├── share/               ... vagrant 共有ディレクトリ
-    └── Vagrantfile          ... vagrant VM 設定
+│   ├── setup_os.sh                 ... OS のセットアップスクリプト
+│   ├── setup_package_mariadb.sh    ... MongoDB のセットアップスクリプト
+│   ├── setup_package_mongodb.sh    ... MongoDB のセットアップスクリプト
+│   ├── setup_package_nginx.sh      ... Nginx のセットアップスクリプト
+│   ├── setup_package_nodejs.sh     ... Node.js のセットアップスクリプト
+│   ├── setup_package_postgresql.sh ... PostgreSQL のセットアップスクリプト
+│   └── setup_package_redis.sh      ... Redis のセットアップスクリプト
+└── vagrant/                        ... vagrant 用
+    ├── share/                      ... vagrant 共有ディレクトリ
+    └── Vagrantfile                 ... vagrant VM 設定
 </div></code></pre>
 <hr>
 <p>以上</p>
