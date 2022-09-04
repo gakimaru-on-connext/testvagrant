@@ -367,81 +367,15 @@ code {
   </script>
 <h1 id="vagrant-test----omit-in-toc">Vagrant Test <!-- omit in toc --></h1>
 <p><a href="https://github.com/gakimaru-on-connext/testvagrant">https://github.com/gakimaru-on-connext/testvagrant</a></p>
+<hr>
 <ul>
 <li><a href="#%E6%A6%82%E8%A6%81">■概要</a></li>
 <li><a href="#%E5%8B%95%E4%BD%9C%E8%A6%81%E4%BB%B6">■動作要件</a></li>
-<li><a href="#vm-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95">■VM 操作方法</a>
-<ul>
-<li><a href="#vm-%E8%B5%B7%E5%8B%95">▼VM 起動</a></li>
-<li><a href="#%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">▼プロビジョニング（セットアップ）</a></li>
-<li><a href="#vm-%E5%86%8D%E8%B5%B7%E5%8B%95">▼VM 再起動</a></li>
-<li><a href="#vm-%E8%B5%B7%E5%8B%95%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%A8%E5%90%8C%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0">▼VM 起動／再起動と同時にプロビジョニング</a></li>
-<li><a href="#vm-%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%97%E3%81%AA%E3%81%84">▼VM 起動時にプロビジョニングしない</a></li>
-<li><a href="#vm-%E5%81%9C%E6%AD%A2">▼VM 停止</a></li>
-<li><a href="#vm-%E7%A0%B4%E6%A3%84">▼VM 破棄</a></li>
-<li><a href="#vm-%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3">▼VM ログイン</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E5%86%85%E5%AE%B9">■セットアップ内容</a>
-<ul>
-<li><a href="#os">▼OS</a></li>
-<li><a href="#%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8">▼パッケージ</a></li>
-</ul>
-</li>
-<li><a href="#%E5%90%84%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%B8%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%96%B9%E6%B3%95">■各サーバーへのアクセス方法</a>
-<ul>
-<li><a href="#mariadb">▼MariaDB</a>
-<ul>
-<li><a href="#%E6%BA%96%E5%82%99">▽準備</a></li>
-<li><a href="#%E6%8E%A5%E7%B6%9A">▽接続</a></li>
-</ul>
-</li>
-<li><a href="#postgresql">▼PostgreSQL</a>
-<ul>
-<li><a href="#%E6%BA%96%E5%82%99-1">▽準備</a></li>
-<li><a href="#%E6%8E%A5%E7%B6%9A-1">▽接続</a></li>
-</ul>
-</li>
-<li><a href="#mongodb">▼MongoDB</a>
-<ul>
-<li><a href="#%E6%BA%96%E5%82%99-2">▽準備</a></li>
-<li><a href="#%E6%8E%A5%E7%B6%9A-2">▽接続</a></li>
-</ul>
-</li>
-<li><a href="#redis">▼Redis</a>
-<ul>
-<li><a href="#%E6%BA%96%E5%82%99-3">▽準備</a></li>
-<li><a href="#%E6%8E%A5%E7%B6%9A-3">▽接続</a></li>
-</ul>
-</li>
-<li><a href="#nginx">▼Nginx</a>
-<ul>
-<li><a href="#%E6%BA%96%E5%82%99-4">▽準備</a></li>
-<li><a href="#%E6%8E%A5%E7%B6%9A-4">▽接続</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%A7%A3%E8%AA%AC-vagrant-%E8%A8%AD%E5%AE%9A">■解説： Vagrant 設定</a>
-<ul>
-<li><a href="#vagrant-%E3%81%AE%E5%AF%BE%E8%B1%A1vm%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%AE%E6%8C%87%E5%AE%9A">▼Vagrant の対象VMプラットフォームの指定</a></li>
-<li><a href="#vagrant-%E3%81%AE%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A">▼Vagrant のネットワーク設定</a></li>
-<li><a href="#vagrant-%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AF%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A">▼Vagrant のポートフォワーディング設定</a></li>
-<li><a href="#vagrant-%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%85%B1%E6%9C%89%E8%A8%AD%E5%AE%9A">▼Vagrant のディレクトリ共有設定</a>
-<ul>
-<li><a href="#type-rsync">▽type: rsync</a></li>
-<li><a href="#type-virtualbox">▽type: virtualbox</a></li>
-<li><a href="#type-nfs">▽type: nfs</a></li>
-<li><a href="#type-smb">▽type: smb</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%A7%A3%E8%AA%AC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0">■解説：プロビジョニング</a>
-<ul>
-<li><a href="#vagrant-%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A">▼Vagrant プロビジョニング設定</a></li>
-</ul>
-</li>
+<li><a href="#vm-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95">■VM 操作方法</a></li>
+<li><a href="#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E5%86%85%E5%AE%B9">■セットアップ内容</a></li>
+<li><a href="#%E5%90%84%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%B8%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E6%96%B9%E6%B3%95">■各サーバーへのアクセス方法</a></li>
+<li><a href="#%E8%A7%A3%E8%AA%AC-vagrant-%E8%A8%AD%E5%AE%9A">■解説： Vagrant 設定</a></li>
+<li><a href="#%E8%A7%A3%E8%AA%AC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0">■解説：プロビジョニング</a></li>
 <li><a href="#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90">■ディレクトリ構成</a></li>
 </ul>
 <hr>
@@ -475,50 +409,50 @@ code {
 </ul>
 <hr>
 <h2 id="%E2%96%A0vm-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95">■VM 操作方法</h2>
-<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95">▼VM 起動</h3>
+<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95----omit-in-toc">▼VM 起動 <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant up</span>
 </div></code></pre>
 <ul>
 <li>※初回の VM 起動時（VM生成時）には自動的にプロビジョニングも行われる</li>
 </ul>
-<h3 id="%E2%96%BC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">▼プロビジョニング（セットアップ）</h3>
+<h3 id="%E2%96%BC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97----omit-in-toc">▼プロビジョニング（セットアップ） <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant provision</span>
 </div></code></pre>
 <ul>
 <li>これにより、各セットアップシェルスクリプトが順次呼び出される</li>
 </ul>
-<h3 id="%E2%96%BCvm-%E5%86%8D%E8%B5%B7%E5%8B%95">▼VM 再起動</h3>
+<h3 id="%E2%96%BCvm-%E5%86%8D%E8%B5%B7%E5%8B%95----omit-in-toc">▼VM 再起動 <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant reload</span>
 </div></code></pre>
-<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95%EF%BC%8F%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%A8%E5%90%8C%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0">▼VM 起動／再起動と同時にプロビジョニング</h3>
+<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95%EF%BC%8F%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%A8%E5%90%8C%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0----omit-in-toc">▼VM 起動／再起動と同時にプロビジョニング <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant up --provision</span>
 </div></code></pre>
 <p>または</p>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> vagrant reload --provision</span>
 </div></code></pre>
-<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%97%E3%81%AA%E3%81%84">▼VM 起動時にプロビジョニングしない</h3>
+<h3 id="%E2%96%BCvm-%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%97%E3%81%AA%E3%81%84----omit-in-toc">▼VM 起動時にプロビジョニングしない <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant up --no-provision</span>
 </div></code></pre>
-<h3 id="%E2%96%BCvm-%E5%81%9C%E6%AD%A2">▼VM 停止</h3>
+<h3 id="%E2%96%BCvm-%E5%81%9C%E6%AD%A2----omit-in-toc">▼VM 停止 <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant halt</span>
 </div></code></pre>
-<h3 id="%E2%96%BCvm-%E7%A0%B4%E6%A3%84">▼VM 破棄</h3>
+<h3 id="%E2%96%BCvm-%E7%A0%B4%E6%A3%84----omit-in-toc">▼VM 破棄 <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant destroy</span>
 </div></code></pre>
-<h3 id="%E2%96%BCvm-%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3">▼VM ログイン</h3>
+<h3 id="%E2%96%BCvm-%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3----omit-in-toc">▼VM ログイン <!-- omit in toc --></h3>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant ssh</span>
 </div></code></pre>
 <hr>
 <h2 id="%E2%96%A0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E5%86%85%E5%AE%B9">■セットアップ内容</h2>
-<h3 id="%E2%96%BCos">▼OS</h3>
+<h3 id="%E2%96%BCos----omit-in-toc">▼OS <!-- omit in toc --></h3>
 <ul>
 <li>Rocky Linux 9
 <ul>
@@ -527,7 +461,7 @@ code {
 </ul>
 </li>
 </ul>
-<h3 id="%E2%96%BC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8">▼パッケージ</h3>
+<h3 id="%E2%96%BC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8----omit-in-toc">▼パッケージ <!-- omit in toc --></h3>
 <ul>
 <li>MariaDB（MySQL互換のRDBサーバー）</li>
 <li>PostgreSQL（RDBサーバー）</li>
@@ -541,20 +475,20 @@ code {
 <ul>
 <li>macOSからのアクセス方法</li>
 </ul>
-<h3 id="%E2%96%BCmariadb">▼MariaDB</h3>
-<h4 id="%E2%96%BD%E6%BA%96%E5%82%99">▽準備</h4>
+<h3 id="%E2%96%BCmariadb----omit-in-toc">▼MariaDB <!-- omit in toc --></h3>
+<h4 id="%E2%96%BD%E6%BA%96%E5%82%99----omit-in-toc">▽準備 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> brew install mysql-client</span>
 </div></code></pre>
-<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A">▽接続</h4>
+<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A----omit-in-toc">▽接続 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> mysql -u admin -h 192.168.56.10 --password=hogehoge mysql</span>
 mysql [admin@192.168.56.1 mysql] &gt;
 </div></code></pre>
-<h3 id="%E2%96%BCpostgresql">▼PostgreSQL</h3>
-<h4 id="%E2%96%BD%E6%BA%96%E5%82%99">▽準備</h4>
+<h3 id="%E2%96%BCpostgresql----omit-in-toc">▼PostgreSQL <!-- omit in toc --></h3>
+<h4 id="%E2%96%BD%E6%BA%96%E5%82%99----omit-in-toc">▽準備 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> brew install libpq</span>
 <span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'export PATH=$PATH:/usr/local/opt/libpq/bin'</span> &gt;&gt; ~/.zshrc</span>
 </div></code></pre>
-<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A">▽接続</h4>
+<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A----omit-in-toc">▽接続 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> psql -U admin -h 192.168.56.10 -d postgres</span>
 Password for user admin: hogehoge（パスワード入力）
 postgres=#
@@ -563,27 +497,27 @@ postgres=#
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> psql <span class="hljs-string">'postgres://admin:hogehoge@192.168.56.10:5432/postgres?sslmode=disable'</span></span>
 postgres=#
 </div></code></pre>
-<h3 id="%E2%96%BCmongodb">▼MongoDB</h3>
-<h4 id="%E2%96%BD%E6%BA%96%E5%82%99">▽準備</h4>
+<h3 id="%E2%96%BCmongodb----omit-in-toc">▼MongoDB <!-- omit in toc --></h3>
+<h4 id="%E2%96%BD%E6%BA%96%E5%82%99----omit-in-toc">▽準備 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> brew install mongsh</span>
 </div></code></pre>
-<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A">▽接続</h4>
+<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A----omit-in-toc">▽接続 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> mongosh 192.168.56.10</span>
 <span class="hljs-meta">test&gt;</span>
 </div></code></pre>
-<h3 id="%E2%96%BCredis">▼Redis</h3>
-<h4 id="%E2%96%BD%E6%BA%96%E5%82%99">▽準備</h4>
+<h3 id="%E2%96%BCredis----omit-in-toc">▼Redis <!-- omit in toc --></h3>
+<h4 id="%E2%96%BD%E6%BA%96%E5%82%99----omit-in-toc">▽準備 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> brew install redis</span>
 </div></code></pre>
-<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A">▽接続</h4>
+<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A----omit-in-toc">▽接続 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> redis-cli -h 192.168.56.10</span>
 192.168.56.10:6379&gt;
 </div></code></pre>
-<h3 id="%E2%96%BCnginx">▼Nginx</h3>
-<h4 id="%E2%96%BD%E6%BA%96%E5%82%99">▽準備</h4>
+<h3 id="%E2%96%BCnginx----omit-in-toc">▼Nginx <!-- omit in toc --></h3>
+<h4 id="%E2%96%BD%E6%BA%96%E5%82%99----omit-in-toc">▽準備 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> brew install curl</span>
 </div></code></pre>
-<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A">▽接続</h4>
+<h4 id="%E2%96%BD%E6%8E%A5%E7%B6%9A----omit-in-toc">▽接続 <!-- omit in toc --></h4>
 <pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> curl http://192.168.56.10</span>
 ...(HTML出力)...
 </div></code></pre>
@@ -592,7 +526,7 @@ postgres=#
 </ul>
 <hr>
 <h2 id="%E2%96%A0%E8%A7%A3%E8%AA%AC-vagrant-%E8%A8%AD%E5%AE%9A">■解説： Vagrant 設定</h2>
-<h3 id="%E2%96%BCvagrant-%E3%81%AE%E5%AF%BE%E8%B1%A1vm%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%AE%E6%8C%87%E5%AE%9A">▼Vagrant の対象VMプラットフォームの指定</h3>
+<h3 id="%E2%96%BCvagrant-%E3%81%AE%E5%AF%BE%E8%B1%A1vm%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%AE%E6%8C%87%E5%AE%9A----omit-in-toc">▼Vagrant の対象VMプラットフォームの指定 <!-- omit in toc --></h3>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -631,7 +565,7 @@ postgres=#
 <p>Hyper-V （Windows）を使用する場合は、provider に :hyperv を指定</p>
 </li>
 </ul>
-<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A">▼Vagrant のネットワーク設定</h3>
+<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A----omit-in-toc">▼Vagrant のネットワーク設定 <!-- omit in toc --></h3>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -652,7 +586,7 @@ postgres=#
 </ul>
 </li>
 </ul>
-<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AF%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A">▼Vagrant のポートフォワーディング設定</h3>
+<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AF%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A----omit-in-toc">▼Vagrant のポートフォワーディング設定 <!-- omit in toc --></h3>
 <ul>
 <li>
 <p>ホストOS側（macOS）の特定のポートをゲストOS側にフォワードする設定</p>
@@ -675,11 +609,11 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 </div></code></pre>
 </li>
 </ul>
-<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%85%B1%E6%9C%89%E8%A8%AD%E5%AE%9A">▼Vagrant のディレクトリ共有設定</h3>
+<h3 id="%E2%96%BCvagrant-%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%85%B1%E6%9C%89%E8%A8%AD%E5%AE%9A----omit-in-toc">▼Vagrant のディレクトリ共有設定 <!-- omit in toc --></h3>
 <ul>
 <li>ホストOS側（macOS）とゲストOS側のディレクトリを共有する設定</li>
 </ul>
-<h4 id="%E2%96%BDtype-rsync">▽type: rsync</h4>
+<h4 id="%E2%96%BDtype-rsync----omit-in-toc">▽type: rsync <!-- omit in toc --></h4>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -696,7 +630,7 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 </ul>
 </li>
 </ul>
-<h4 id="%E2%96%BDtype-virtualbox">▽type: virtualbox</h4>
+<h4 id="%E2%96%BDtype-virtualbox----omit-in-toc">▽type: virtualbox <!-- omit in toc --></h4>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -715,7 +649,7 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 </ul>
 </li>
 </ul>
-<h4 id="%E2%96%BDtype-nfs">▽type: nfs</h4>
+<h4 id="%E2%96%BDtype-nfs----omit-in-toc">▽type: nfs <!-- omit in toc --></h4>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -745,7 +679,7 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 </ul>
 </li>
 </ul>
-<h4 id="%E2%96%BDtype-smb">▽type: smb</h4>
+<h4 id="%E2%96%BDtype-smb----omit-in-toc">▽type: smb <!-- omit in toc --></h4>
 <ul>
 <li>
 <p>Vagrantfile</p>
@@ -766,7 +700,7 @@ config.vm.network <span class="hljs-string">"forwarded_port"</span>, <span class
 </ul>
 <hr>
 <h2 id="%E2%96%A0%E8%A7%A3%E8%AA%AC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0">■解説：プロビジョニング</h2>
-<h3 id="%E2%96%BCvagrant-%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A">▼Vagrant プロビジョニング設定</h3>
+<h3 id="%E2%96%BCvagrant-%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A----omit-in-toc">▼Vagrant プロビジョニング設定 <!-- omit in toc --></h3>
 <ul>
 <li>
 <p>Vagrantfile</p>
