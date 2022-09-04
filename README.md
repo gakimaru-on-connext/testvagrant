@@ -1,6 +1,49 @@
-# Vagrant Test
+# Vagrant Test <!-- omit in toc -->
 
 [https://github.com/gakimaru-on-connext/testvagrant](https://github.com/gakimaru-on-connext/testvagrant)
+
+- [■概要](#概要)
+- [■動作要件](#動作要件)
+- [■VM 操作方法](#vm-操作方法)
+  - [▼VM 起動](#vm-起動)
+  - [▼プロビジョニング（セットアップ）](#プロビジョニングセットアップ)
+  - [▼VM 再起動](#vm-再起動)
+  - [▼VM 起動／再起動と同時にプロビジョニング](#vm-起動再起動と同時にプロビジョニング)
+  - [▼VM 起動時にプロビジョニングしない](#vm-起動時にプロビジョニングしない)
+  - [▼VM 停止](#vm-停止)
+  - [▼VM 破棄](#vm-破棄)
+  - [▼VM ログイン](#vm-ログイン)
+- [■セットアップ内容](#セットアップ内容)
+  - [▼OS](#os)
+  - [▼パッケージ](#パッケージ)
+- [■各サーバーへのアクセス方法](#各サーバーへのアクセス方法)
+  - [▼MariaDB](#mariadb)
+    - [▽準備](#準備)
+    - [▽接続](#接続)
+  - [▼PostgreSQL](#postgresql)
+    - [▽準備](#準備-1)
+    - [▽接続](#接続-1)
+  - [▼MongoDB](#mongodb)
+    - [▽準備](#準備-2)
+    - [▽接続](#接続-2)
+  - [▼Redis](#redis)
+    - [▽準備](#準備-3)
+    - [▽接続](#接続-3)
+  - [▼Nginx](#nginx)
+    - [▽準備](#準備-4)
+    - [▽接続](#接続-4)
+- [■解説： Vagrant 設定](#解説-vagrant-設定)
+  - [▼Vagrant の対象VMプラットフォームの指定](#vagrant-の対象vmプラットフォームの指定)
+  - [▼Vagrant のネットワーク設定](#vagrant-のネットワーク設定)
+  - [▼Vagrant のポートフォワーディング設定](#vagrant-のポートフォワーディング設定)
+  - [▼Vagrant のディレクトリ共有設定](#vagrant-のディレクトリ共有設定)
+    - [▽type: rsync](#type-rsync)
+    - [▽type: virtualbox](#type-virtualbox)
+    - [▽type: nfs](#type-nfs)
+    - [▽type: smb](#type-smb)
+- [■解説：プロビジョニング](#解説プロビジョニング)
+  - [▼Vagrant プロビジョニング設定](#vagrant-プロビジョニング設定)
+- [■ディレクトリ構成](#ディレクトリ構成)
 
 ---
 ## ■概要
@@ -35,7 +78,7 @@ $ cd vagrant
 $ vagrant up
 ```
 
-- ※初回の VM 起動時には自動的にプロビジョニングも行われる
+- ※初回の VM 起動時（VM生成時）には自動的にプロビジョニングも行われる
 
 ### ▼プロビジョニング（セットアップ）
 
@@ -58,7 +101,19 @@ $ vagrant reload
 ```shell
 $ cd vagrant
 $ vagrant up --provision
+```
+
+または
+
+```shell
 $ vagrant reload --provision
+```
+
+### ▼VM 起動時にプロビジョニングしない
+
+```shell
+$ cd vagrant
+$ vagrant up --no-provision
 ```
 
 ### ▼VM 停止
