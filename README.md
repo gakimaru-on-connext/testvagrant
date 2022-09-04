@@ -75,6 +75,13 @@ $ cd vagrant
 $ vagrant destroy
 ```
 
+### ▼VM ログイン
+
+```shell
+$ cd vagrant
+$ vagrant ssh
+```
+
 ---
 ## ■セットアップ内容
 
