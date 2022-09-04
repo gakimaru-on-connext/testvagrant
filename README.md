@@ -369,8 +369,8 @@ testvagrant/
 │   ├── setup-postgresql.sh  ... PostgreSQL のセットアップスクリプト
 │   └── setup-redis.sh       ... Redis のセットアップスクリプト
 └── vagrant/                 ... vagrant 用
-    ├── Vagrantfile          ... vagrant VM 設定
-    └── share/               ... vagrant 共有ディレクトリ
+    ├── share/               ... vagrant 共有ディレクトリ
+    └── Vagrantfile          ... vagrant VM 設定
 ```
 
 ----
