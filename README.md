@@ -1,4 +1,5 @@
-# Vagrant Test <!-- omit in toc -->
+<!-- omit in toc -->
+# Vagrant Test
 
 [https://github.com/gakimaru-on-connext/testvagrant](https://github.com/gakimaru-on-connext/testvagrant)
 
@@ -38,7 +39,8 @@
 ---
 ## ■VM 操作方法
 
-### ▼VM 起動 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM 起動
 
 ```shell
 $ cd vagrant
@@ -47,7 +49,8 @@ $ vagrant up
 
 - ※初回の VM 起動時（VM生成時）には自動的にプロビジョニングも行われる
 
-### ▼プロビジョニング（セットアップ） <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼プロビジョニング（セットアップ）
 
 ```shell
 $ cd vagrant
@@ -56,14 +59,16 @@ $ vagrant provision
 
 - これにより、各セットアップシェルスクリプトが順次呼び出される
 
-### ▼VM 再起動 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM 再起動
 
 ```shell
 $ cd vagrant
 $ vagrant reload
 ```
 
-### ▼VM 起動／再起動と同時にプロビジョニング <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM 起動／再起動と同時にプロビジョニング
 
 ```shell
 $ cd vagrant
@@ -76,28 +81,42 @@ $ vagrant up --provision
 $ vagrant reload --provision
 ```
 
-### ▼VM 起動時にプロビジョニングしない <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM 起動時にプロビジョニングしない
 
 ```shell
 $ cd vagrant
 $ vagrant up --no-provision
 ```
 
-### ▼VM 停止 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼全 VM の状態をリストアップ
+
+```shell
+$ vagrant global-status
+id       name    provider   state    directory
+------------------------------------------------------------------------------------------------
+e4d2635  default  virtualbox running  /Users/user/works/testvagrant/vagrant
+```
+
+<!-- omit in toc -->
+### ▼VM 停止
 
 ```shell
 $ cd vagrant
 $ vagrant halt
 ```
 
-### ▼VM 破棄 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM 破棄
 
 ```shell
 $ cd vagrant
 $ vagrant destroy
 ```
 
-### ▼VM ログイン <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼VM ログイン
 
 ```shell
 $ cd vagrant
@@ -107,13 +126,15 @@ $ vagrant ssh
 ---
 ## ■セットアップ内容
 
-### ▼OS <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼OS
 
 - Rocky Linux 9
   - RedHat 9 互換
   - CentOS 後継 OS の一つ
 
-### ▼パッケージ <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼パッケージ
 
 - MariaDB（MySQL互換のRDBサーバー）
 - PostgreSQL（RDBサーバー）
@@ -127,31 +148,37 @@ $ vagrant ssh
 
 - macOSからのアクセス方法
 
-### ▼MariaDB <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼MariaDB
 
-#### ▽準備 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽準備
 
 ```shell
 $ brew install mysql-client
 ```
 
-#### ▽接続 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽接続
 
 ```shell
 $ mysql -u admin -h 192.168.56.10 --password=hogehoge mysql
 mysql [admin@192.168.56.1 mysql] >
 ```
 
-### ▼PostgreSQL <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼PostgreSQL
 
-#### ▽準備 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽準備
 
 ```shell
 $ brew install libpq
 $ echo 'export PATH=$PATH:/usr/local/opt/libpq/bin' >> ~/.zshrc
 ```
 
-#### ▽接続 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽接続
 
 ```shell
 $ psql -U admin -h 192.168.56.10 -d postgres
@@ -166,45 +193,54 @@ $ psql 'postgres://admin:hogehoge@192.168.56.10:5432/postgres?sslmode=disable'
 postgres=#
 ```
 
-### ▼MongoDB <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼MongoDB
 
-#### ▽準備 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽準備
 
 ```shell
 $ brew install mongsh
 ```
 
-#### ▽接続 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽接続
 
 ```shell
 $ mongosh 192.168.56.10
 test>
 ```
 
-### ▼Redis <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Redis
 
-#### ▽準備 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽準備
 
 ```shell
 $ brew install redis
 ```
 
-#### ▽接続 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽接続
 
 ```shell
 $ redis-cli -h 192.168.56.10
 192.168.56.10:6379>
 ```
 
-### ▼Nginx <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Nginx
 
-#### ▽準備 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽準備
 
 ```shell
 $ brew install curl
 ```
 
-#### ▽接続 <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽接続
 
 ```shell
 $ curl http://192.168.56.10
@@ -216,7 +252,8 @@ $ curl http://192.168.56.10
 ---
 ## ■解説： Vagrant 設定
 
-### ▼Vagrant の対象VMプラットフォームの指定 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Vagrant の対象VMプラットフォームの指定
 
 - Vagrantfile
 
@@ -245,7 +282,8 @@ $ curl http://192.168.56.10
       ```
 - Hyper-V （Windows）を使用する場合は、provider に :hyperv を指定
 
-### ▼Vagrant のネットワーク設定 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Vagrant のネットワーク設定
 
 - Vagrantfile
 
@@ -260,7 +298,8 @@ $ curl http://192.168.56.10
         ```shell
         * 192.168.56.0/24 192.168.33.0/24 192.168.99.100/24
         ```
-### ▼Vagrant のポートフォワーディング設定 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Vagrant のポートフォワーディング設定
 
 - ホストOS側（macOS）の特定のポートをゲストOS側にフォワードする設定
 
@@ -283,11 +322,13 @@ $ curl http://192.168.56.10
    $ curl http://127.0.0.1:40080
    ```
 
-### ▼Vagrant のディレクトリ共有設定 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Vagrant のディレクトリ共有設定
 
 - ホストOS側（macOS）とゲストOS側のディレクトリを共有する設定
 
-#### ▽type: rsync <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽type: rsync
 
 - Vagrantfile
 
@@ -299,7 +340,8 @@ $ curl http://192.168.56.10
 - 特徴：
   - VM 起動時にのみ共有
 
-#### ▽type: virtualbox <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽type: virtualbox
 
 - Vagrantfile
 
@@ -313,7 +355,8 @@ $ curl http://192.168.56.10
   - 設定が簡単だが、nfs と比較して遅い
   - type の指定を省略すると virtualbox になる（provider が VirtualBox の場合）
 
-#### ▽type: nfs <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽type: nfs
 
 - Vagrantfile
 
@@ -336,7 +379,8 @@ $ curl http://192.168.56.10
       ```
   - ホストOS側のパスを /System/Volumes/ から始まるパスで指定する必要あり
 
-#### ▽type: smb <!-- omit in toc -->
+<!-- omit in toc -->
+#### ▽type: smb
 
 - Vagrantfile
 
@@ -353,7 +397,8 @@ $ curl http://192.168.56.10
 ---
 ## ■解説：プロビジョニング
 
-### ▼Vagrant プロビジョニング設定 <!-- omit in toc -->
+<!-- omit in toc -->
+### ▼Vagrant プロビジョニング設定
 
 - Vagrantfile
 
