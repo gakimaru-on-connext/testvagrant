@@ -488,25 +488,25 @@ SHELL</span>
 </ul>
 <hr>
 <h2 id="ディレクトリ構成">■ディレクトリ構成</h2>
-<pre><code><code><div>testvagrant/
+<pre><code class="language-shell"><div>testvagrant/
 ├── README.html
 ├── README.md
-├── setup/                          ... セットアップシェルスクリプト用
-│   ├── config/                     ... 各セットアップで使用する設定ファイル
+├── setup/                          # セットアップシェルスクリプト用
+│   ├── config/                     # 各セットアップで使用する設定ファイル
 │   │   └── etc/
 │   │       └── yum.repos.d/
 │   │           └── mongodb-org-6.0.repo
-│   ├── setup_os.sh                 ... OS のセットアップスクリプト
-│   ├── setup_package_mariadb.sh    ... MongoDB のセットアップスクリプト
-│   ├── setup_package_mongodb.sh    ... MongoDB のセットアップスクリプト
-│   ├── setup_package_nginx.sh      ... Nginx のセットアップスクリプト
-│   ├── setup_package_nodejs.sh     ... Node.js のセットアップスクリプト
-│   ├── setup_package_postgresql.sh ... PostgreSQL のセットアップスクリプト
-│   └── setup_package_redis.sh      ... Redis のセットアップスクリプト
-└── vagrant/                        ... vagrant 用
-    ├── share/                      ... vagrant 共有ディレクトリ
-    └── Vagrantfile                 ... vagrant VM 設定
-</div></code></code></pre>
+│   ├── setup_os.sh                 # OS のセットアップスクリプト
+│   ├── setup_package_mariadb.sh    # MongoDB のセットアップスクリプト
+│   ├── setup_package_mongodb.sh    # MongoDB のセットアップスクリプト
+│   ├── setup_package_nginx.sh      # Nginx のセットアップスクリプト
+│   ├── setup_package_nodejs.sh     # Node.js のセットアップスクリプト
+│   ├── setup_package_postgresql.sh # PostgreSQL のセットアップスクリプト
+│   └── setup_package_redis.sh      # Redis のセットアップスクリプト
+└── vagrant/                        # vagrant 用
+    ├── share/                      # vagrant 共有ディレクトリ
+    └── Vagrantfile                 # vagrant VM 設定
+</div></code></pre>
 <hr>
 <p>以上</p>
 
