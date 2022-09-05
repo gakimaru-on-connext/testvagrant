@@ -338,7 +338,9 @@ $ curl http://192.168.56.10
 
 - 単方向共有（ホスト → ゲスト）
 - 特徴：
-  - VM 起動時にのみ共有
+  - VM 起動時やプロビジョニング時にのみ共有
+    - （vagrant up / vagrant reload / vagrant provision 実行時）
+  - vagrant rsync-auto を実行しておくと、ファイル更新の際に rsync が自動実行される
 
 <!-- omit in toc -->
 #### ▽type: virtualbox

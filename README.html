@@ -379,7 +379,12 @@ config.vm.network <span class="hljs-string">&quot;forwarded_port&quot;</span>, <
 <li>
 <p>特徴：</p>
 <ul>
-<li>VM 起動時にのみ共有</li>
+<li>VM 起動時やプロビジョニング時にのみ共有
+<ul>
+<li>（vagrant up / vagrant reload / vagrant provision 実行時）</li>
+</ul>
+</li>
+<li>vagrant rsync-auto を実行しておくと、ファイル更新の際に rsync が自動実行される</li>
 </ul>
 </li>
 </ul>
