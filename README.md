@@ -18,7 +18,7 @@
 
 - Vagrant を用いた VM 上へのOSセットアップのテスト
 - シェル（スクリプト）によるセットアップを行う
-- Ansible によるセットアップと比較できるように、同様の内容の Ansible 版も用意
+- Ansible によるセットアップと比較するためのリポジトリも用意
   - [https://github.com/gakimaru-on-connext/testansible](https://github.com/gakimaru-on-connext/testansible)
 
 ---
@@ -122,6 +122,37 @@ $ vagrant destroy
 $ cd vagrant
 $ vagrant ssh
 ```
+
+<!-- omit in toc -->
+### ▼複数ホスト使用時の VM ログイン
+
+```shell
+$ cd vagrant
+$ vagrant ssh (ホスト名)
+```
+
+- Vagrantfile で複数ホストを扱うように構成している場合、ログインの際には Vagrantfile でホスト名を指定する必要がある
+  - 複数ホストを扱う時の Vagrantfile の例
+
+    ```ruby
+    # host01
+    config.vm.define "host01" do |host01|
+      host01.vm.box = "generic/rocky9"
+      host01.vm.network "private_network", ip: "192.168.56.11"
+      host01.vm.provider :virtualbox do |vb|
+        vb.name = "testvagrant01"
+      ...
+    end
+
+    # host02
+    config.vm.define "host02" do |host02|
+      host02.vm.box = "generic/rocky9"
+      host02.vm.network "private_network", ip: "192.168.56.12"
+      host02.vm.provider :virtualbox do |vb|
+        vb.name = "testvagrant02"
+      ...
+    end
+    ```
 
 ---
 ## ■セットアップ内容

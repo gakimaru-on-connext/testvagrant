@@ -99,7 +99,7 @@
 <ul>
 <li>Vagrant を用いた VM 上へのOSセットアップのテスト</li>
 <li>シェル（スクリプト）によるセットアップを行う</li>
-<li>Ansible によるセットアップと比較できるように、同様の内容の Ansible 版も用意
+<li>Ansible によるセットアップと比較するためのリポジトリも用意
 <ul>
 <li><a href="https://github.com/gakimaru-on-connext/testansible">https://github.com/gakimaru-on-connext/testansible</a></li>
 </ul>
@@ -181,6 +181,38 @@ e4d2635  default  virtualbox running  /Users/user/works/testvagrant/vagrant
 <pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
 <span class="hljs-meta">$</span><span class="bash"> vagrant ssh</span>
 </div></code></pre>
+<!-- omit in toc -->
+<h3 id="複数ホスト使用時の-vm-ログイン">▼複数ホスト使用時の VM ログイン</h3>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vagrant</span>
+<span class="hljs-meta">$</span><span class="bash"> vagrant ssh (ホスト名)</span>
+</div></code></pre>
+<ul>
+<li>Vagrantfile で複数ホストを扱うように構成している場合、ログインの際には Vagrantfile でホスト名を指定する必要がある
+<ul>
+<li>
+<p>複数ホストを扱う時の Vagrantfile の例</p>
+<pre><code class="language-ruby"><div><span class="hljs-comment"># host01</span>
+config.vm.define <span class="hljs-string">&quot;host01&quot;</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|host01|</span>
+  host01.vm.box = <span class="hljs-string">&quot;generic/rocky9&quot;</span>
+  host01.vm.network <span class="hljs-string">&quot;private_network&quot;</span>, <span class="hljs-symbol">ip:</span> <span class="hljs-string">&quot;192.168.56.11&quot;</span>
+  host01.vm.provider <span class="hljs-symbol">:virtualbox</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|vb|</span>
+    vb.name = <span class="hljs-string">&quot;testvagrant01&quot;</span>
+  ...
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># host02</span>
+config.vm.define <span class="hljs-string">&quot;host02&quot;</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|host02|</span>
+  host02.vm.box = <span class="hljs-string">&quot;generic/rocky9&quot;</span>
+  host02.vm.network <span class="hljs-string">&quot;private_network&quot;</span>, <span class="hljs-symbol">ip:</span> <span class="hljs-string">&quot;192.168.56.12&quot;</span>
+  host02.vm.provider <span class="hljs-symbol">:virtualbox</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|vb|</span>
+    vb.name = <span class="hljs-string">&quot;testvagrant02&quot;</span>
+  ...
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h2 id="セットアップ内容">■セットアップ内容</h2>
 <!-- omit in toc -->
