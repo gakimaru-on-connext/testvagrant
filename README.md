@@ -463,7 +463,7 @@ $ curl http://192.168.56.10
 testvagrant/
 ├── README.html
 ├── README.md
-├── setup/                          # セットアップシェルスクリプト用
+├── setup/                          # セットアップシェルスクリプト／設定用
 │   ├── config/                     # 各セットアップで使用する設定ファイル
 │   │   └── etc/
 │   │       └── yum.repos.d/
@@ -476,7 +476,7 @@ testvagrant/
 │   ├── setup_package_postgresql.sh # PostgreSQL のセットアップスクリプト
 │   └── setup_package_redis.sh      # Redis のセットアップスクリプト
 └── vagrant/                        # vagrant 用
-    ├── share/                      # vagrant 共有ディレクトリ
+    ├── share/                      # vagrant 共有ディレクトリ（未使用）
     └── Vagrantfile                 # vagrant VM 設定
 ```
 
