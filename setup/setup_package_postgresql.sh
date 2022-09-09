@@ -37,8 +37,8 @@ EOD
 
 PG_HBA_PATH=/var/lib/pgsql/14/data/pg_hba.conf
 
-sed -i "/host    all             all             127.0.0.1\/32            scram-sha-256/a host    all             all             192.168.56.0\/24         md5" $PG_HBA_PATH
-#sed -i "/host    all             all             ::1\/128                 scram-sha-256/a host    all             all             192.168.56.0/24          md5" $PG_HBA_PATH
+sed -i "/host    all             all             127.0.0.1\/32            scram-sha-256/a host    all             all             192.168.56.0\/21         md5" $PG_HBA_PATH
+#sed -i "/host    all             all             ::1\/128                 scram-sha-256/a host    all             all             192.168.56.0/21          md5" $PG_HBA_PATH
 
 PG_CONF_PATH=/var/lib/pgsql/14/data/postgresql.conf 
 
