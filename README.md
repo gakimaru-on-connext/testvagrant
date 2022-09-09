@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Vagrant Test
+# Vagrant テスト
 
 [https://github.com/gakimaru-on-connext/testvagrant](https://github.com/gakimaru-on-connext/testvagrant)
 
