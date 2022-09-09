@@ -63,7 +63,8 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "./data", "/vagrant_data"
-  config.vm.synced_folder "../setup/config", "/vagrant/setup/config", type: "rsync"
+  config.vm.synced_folder "../setup/config", "/vagrant/setup/config", type: "rsync",
+    rsync__args: ["-avh", "--delete", "--progress"]
   #config.vm.synced_folder "./share", "/vagrant/share"
   #config.vm.synced_folder "/System/Volumes/Data" + File.expand_path("./share"), "/vagrant/share", type: "nfs", nfs_export: true, nfs_udp: false, nfs_version: 3
 
@@ -97,6 +98,7 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  # [初回起動時のみ] シェルスクリプトで OS と Docker をセットアップ
   setup_dir = "../setup"
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_os.sh", reboot: true
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_mariadb.sh"
