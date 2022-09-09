@@ -98,7 +98,7 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-  # [初回起動時のみ] シェルスクリプトで OS と Docker をセットアップ
+  # [初回起動時のみ実行] シェルスクリプトで OS と Docker をセットアップ
   setup_dir = "../setup"
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_os.sh", reboot: true
   config.vm.provision :shell, privileged: true, path: setup_dir + "/setup_package_mariadb.sh"
