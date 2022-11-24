@@ -22,7 +22,7 @@ systemctl status postgresql-14
 
 # ToDo: 設定済み判定＆スキップ
 
-#AdminDb=admin
+AdminDb=admin
 sudo -i -u postgres psql <<EOD
 CREATE DATABASE $AdminDb;
 \l

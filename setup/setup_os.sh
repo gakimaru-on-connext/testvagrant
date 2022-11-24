@@ -30,7 +30,7 @@ timedatectl set-timezone Asia/Tokyo
 
 # Set pam limits
 # /etc/security/limits.conf を編集して * - nofile 524288 を追加
-# 一時的な辺国: ulimit -n 524288
+# 一時的な変更: ulimit -n 524288
 
 # Create project user & group
 useradd test
